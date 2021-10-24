@@ -42,10 +42,10 @@ const instance = basicLightbox.create(
     
 , {
     onShow: () => {
-        window.addEventListener('click', handleKeyDown);
+        window.addEventListener('keydown', handleKeyDown);
 },
 onClose: () =>{
-    window.addEventListener('click', handleKeyDown)
+    window.addEventListener('keydown', handleKeyDown)
 },
 
 }
@@ -59,10 +59,13 @@ instance.element().querySelector("img").src = event.target.dataset.source;
 instance.show()
 console.log()
 };
- const handleKeyDown = (event) => {
-     if(event.key === 'Escape')
-     instance.close();
- }
+ 
+const handleKeyDown = (event) => {
+     if(event.key === 'Escape'){
+      instance.close();
+     }
+    
+ };
 
 galleryContainer.addEventListener('click', handleImageClick);
  
